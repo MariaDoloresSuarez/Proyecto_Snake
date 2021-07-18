@@ -1,12 +1,128 @@
 openapi: '3.0.2'
 info:
-  title: snake
+  title: Snake
   version: '1.0'
 servers:
-  - url: https://localhost:3000/v1
+  - url: http://localhost:3000/v1
+tags:
+ - name: User
+components:
+  schemas:
+    user:
+      type: object
+      properties:
+        id:
+          type: integer
+        username:
+          type: string
+        fullname:
+          type: string
+        email:
+          type: string
+          format: email
+        password:
+          type: string
+          format: password
 paths:
-  /users:
+  /users/{id}:
+    parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
     get:
+      summary: Obtiene un usuario por id  
+      operationId: getUserById
       responses:
         '200':
           description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                $ref: '#/components/schemas/user'
+    delete:
+      summary: Borrar un usuario
+      operationId: deleteUser
+      responses:
+        "200":
+          description: Ok
+          content:
+            application/json:
+              schema:
+                type: object
+                $ref: '#/components/schemas/user'
+    put:
+      description: Modificacion de usuario
+      operationId: upateUser
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+               type: object
+               properties:
+                 username:
+                  type: string
+                 fullname:
+                  type: string
+                 email:
+                  type: string
+                  format: email
+                 password:
+                  type: string
+                  format: password
+               
+      responses:
+        "200":
+          description: Ok
+          content:
+            application/json:
+              schema:
+                type: object
+                $ref: '#/components/schemas/user'
+  /users:
+    get:
+      summary: Obtiene el listado de usuarios
+      description: Obtener usuarios de la aplicacion Snake
+      operationId: getUsers
+      requestBody:
+        description: Creacion de un nuevo usuario
+        required: true
+        content:
+          application/json:
+            schema:
+               type: object
+               $ref: '#/components/schemas/user'
+      responses:
+        '200':
+          description: OK
+  /users/create:
+    post:
+      summary: Crear un nuevo usuario
+      operationId: createUser
+      requestBody:
+        description: Creacion de un nuevo usuario
+        required: true
+        content:
+          application/json:
+            schema:      # Request body contents
+              type: object
+              properties:            
+                username:
+                  type: string
+                fullname:
+                  type: string
+                email:
+                  type: string
+                  format: email
+                password:
+                  type: string
+                  format: password  
+                   
+      responses:
+         '200':
+          description: created  
+      tags:
+        - "User"
