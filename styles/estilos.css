@@ -1,0 +1,206 @@
+body{
+    /* 9i48B5yGT.gif */
+    background-image: url(/images/9i48B5yGT.gif);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    margin: 100px auto;
+    padding: 30px;
+    line-height: 2.5;
+    text-align: center;
+}
+
+h1{
+    color:#38ff20;
+    /* font-family: 'Orbitron', sans-serif; */
+    font-family: 'Press Start 2P', cursive;
+    font-size:7vw;
+}
+.navbar {
+    background-color: #1c1b1b!important;
+
+}
+a{
+    /* font-family: 'Zen Dots', cursive; */
+    font-family: 'Orbitron', sans-serif;
+   
+}
+.text-light {
+    
+    color: #007bff!important;
+}
+
+h2{
+    font-size:2vw;
+    color:#38ff20;
+    /* font-family: 'Orbitron', sans-serif; */
+    font-family: 'Press Start 2P', cursive;
+}
+
+.table-dark td, .table-dark th, .table-dark thead th {
+    border-color: #38ff20; 
+}
+
+.table-dark {
+    /* font-family: 'Orbitron', sans-serif;
+    color:  #007bff; */
+    background-color: #1c1b1b;
+}
+th{
+    font-family: 'Press Start 2P', cursive;
+    /* font-family: 'Zen Dots', cursive; */
+    /* font-family: 'Orbitron', sans-serif; */
+    color:  #38ff20;
+    font-weight: lighter;
+}
+
+td{
+    font-family: 'Orbitron', sans-serif;
+    color:  #55ab53;
+}
+
+
+.btn-outline-dark {
+color: #007bff;
+ border-color: #007bff;
+ font-family: 'Orbitron', sans-serif;
+}
+
+.btn-outline-dark:hover {
+    color:#38ff20;
+    background-color:transparent;
+    border-color: #38ff20;
+}
+.ui-dialog-content {
+    background-color: #1c1b1b!important;
+    color: #007bff;
+    /* border-color: #007bff!important; */
+    font-family: 'Orbitron', sans-serif;
+    /* border-radius: 2px; */
+    padding: 5px;
+}
+
+/* .ui-dialog-content label{
+text-align: left;
+} */
+input{
+    line-height: normal;
+   line:center;
+    background-color: transparent;
+    border-color:#007bff;
+  color: #55ab53;
+  margin-bottom: .8rem;
+}
+.ui-dialog-titlebar ,.ui-dialog-buttonset {
+    background-color: #1c1b1b!important;
+    color: #007bff;
+   font-family: 'Orbitron', sans-serif;
+}
+.ui-button {
+    color: #007bff;
+     border-color: #007bff;
+     font-family: 'Orbitron', sans-serif;
+     background-color: transparent;
+    }
+
+    .ui-dialog-title{
+        padding: 45px;
+    }
+    .ui-button:hover{
+        color:#38ff20!important;
+        background-color:transparent!important;
+        border-color: #38ff20!important;
+    }
+
+
+    label {
+       
+        display: inline-block;
+        float: left;
+        clear: left;
+        width: 95px;
+        text-align: left;
+    }
+
+.img{
+    max-width: 100%;
+    width: 100%;
+}
+
+
+   div .score{
+      border-radius: 10px!important;
+      border: 10px solid;
+      border-color:#38ff20;    
+      font-size:2vw;
+      color:#38ff20;
+      /* font-family: 'Orbitron', sans-serif; */
+      font-family: 'Press Start 2P', cursive;
+  }
+
+  main {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-rows: 1fr 350px;
+    -ms-grid-columns: 1fr 1fr 1fr;
+        grid-template: 1fr 300px/1fr 1fr 1fr;
+        grid-template-areas: ". score ."". tablero .";
+  }
+  
+  main #score {
+    -ms-grid-row: 1;
+    -ms-grid-column: 2;
+    grid-area: score;
+    /* border-radius: 5px!important;
+    border: 5px solid; */
+    /* border-color:#38ff20;     */
+    font-size:2vw;
+    color:#38ff20;
+    /* font-family: 'Orbitron', sans-serif; */
+    font-family: 'Press Start 2P', cursive;
+  }
+  
+  main #container1 {
+    background-color:transparent;
+    -ms-grid-row: 2;
+    -ms-grid-column: 2;
+    grid-area: tablero;
+    display: -ms-grid;
+    display: grid;
+    /* -ms-grid-rows: (20px)[15];
+    -ms-grid-columns: (20px)[17]; */
+        grid-template: repeat(15, 20px)/repeat(17, 20px);
+    /* align-content: center; */
+    /* grid-template: repeat(10,50px)/repeat(10,50px); */
+  }
+  
+  main #container1 .casillero {
+    width: 20px;
+    height: 20px;
+    font-size: 10px;
+    text-align: center;  
+    /* width: 50px;
+    height: 50px;  */
+  }
+  main #container1 .casillero:nth-child(odd) {
+    background-color: #fbff00;
+    color: black;
+  }
+  
+  main #container1 .casillero:nth-child(even) {
+    background-color: rgb(0, 0, 0);
+    color: whitesmoke;
+  }
+  
+  main #container1 .casillero.headSnake {
+    background-color: goldenrod;
+  }
+  
+  main #container1 .casillero.bodySnake {
+    background-color: grey;
+  }
+  
+  main #container1 .casillero.food {
+    background-color: red;
+  }

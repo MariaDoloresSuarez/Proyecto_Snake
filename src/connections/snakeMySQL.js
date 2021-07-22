@@ -9,4 +9,6 @@ const dbSnake = {
     }
 }
 
-module.exports = { MySql, dbSnake, DataTypes, Model };
+
+
+module.exports = { MySql, dbSnake, DataTypes, Model};

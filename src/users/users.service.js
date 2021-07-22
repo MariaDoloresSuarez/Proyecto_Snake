@@ -28,7 +28,7 @@ const createUser = async (id, username, fullname, email, password) => {
   });
   //console.log("2.s");
 
-  return user;
+  return  `El usuario id: ${user.id} se creó exitosamente`;
   
 }
 
@@ -55,6 +55,9 @@ const updateUser = async (id, username, fullname, email, password) => {
   });
   return user;
 
+  // users.splice(pos,1, userNew);
+  // console.log(users);
+  // return userNew;
 }
 
 module.exports = { getUsers, getUserById, createUser, deleteUser, updateUser };

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https: //fonts.googleapis.com/css2? family = Zen + Dots & display = swap " rel=" stylesheet ">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Zen+Dots&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"> -->
+    <link rel="stylesheet" href="/styles/estilos.css">
+    <title>Snake Users</title>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <nav class="navbar navbar-expand-md fixed-top bg-dark">
+                <div class="container">
+                    <a class="navbar-brand" href="./index.html">HOME</a>
+                    <button class="navbar-toggler navbar-toggler-rigtht text-light" data-toggle="collapse"
+                        data-target="#nav1">Menu
+
+                    </button>
+                    <div id="nav1" class="collapse navbar-collapse">
+                        <div class="navbar-nav">
+                            <a class="nav-link active" aria-current="page" href="./users.html">Users</a>
+                            <a class="nav-link" href="./juego.html">Play</a>
+                            <a class="nav-link" href="./index.html">Options</a>
+                            <a class="nav-link" href="#">Credits</a>
+
+                        </div>
+                    </div>
+                </div>
+        </header>
+    </div>
+
+    <div id="dialog-form" title="Create new user">
+        <p class="validateTips">All form fields are required.</p>
+        <form>
+            <fieldset>
+                <label for="name">Name</label>
+                <input type="text" name="name" id="name" value="Jane Smith">
+                <br>
+                <label for="email">Email</label>
+                <input type="text" name="email" id="email" value="jane@smith.com">
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password" value="xxxxxxx">
+
+                <!-- Allow form submission with keyboard without duplicating the dialog button -->
+                <input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
+            </fieldset>
+        </form>
+    </div>
+    <br>
+    <!-- <div id="users-contain" class="ui-widget"> -->
+    <div class="table-responsive-md">
+        <h2>USUARIOS REGISTRADOS:</h2>
+
+        <!-- <table id="users" class="ui-widget ui-widget-content"> -->
+        <table id="users" class="table table-striped table-dark table-bordered">
+            <thead class="table-dark">
+                <!-- <tr class="ui-widget-header "> -->
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Password</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>John Doe</td>
+                    <td>john.doe@example.com</td>
+                    <td>johndoe1</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    </div>
+    <br>
+    <button id="create-user" class="btn btn-outline-dark">Crear usuario</button>
+
+
+
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="/jQueryUsers.js"></script>
+</body>
+
+</html>
