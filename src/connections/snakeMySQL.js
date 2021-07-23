@@ -9,6 +9,12 @@ const dbSnake = {
     }
 }
 
+const sqlRawQueries ={
+    getScores:'SELECT * FROM scores',
+    getScoreById:'SELECT * FROM scores WHERE id_score = $id_score',
+    createScore: 'INSERT INTO scores (id_score,id_user,puntos,fecha) VALUES($id_score,$id_user,$puntos,$fecha)'
+}
 
 
-module.exports = { MySql, dbSnake, DataTypes, Model};
+
+module.exports = { MySql, dbSnake, DataTypes, Model,sqlRawQueries};

@@ -86,7 +86,8 @@ text-align: left;
 } */
 input{
     line-height: normal;
-   line:center;
+   /* line:center; */
+
     background-color: transparent;
     border-color:#007bff;
   color: #55ab53;

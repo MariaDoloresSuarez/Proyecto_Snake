@@ -1,4 +1,4 @@
-const { app,User} = require('./src/main');
+const { app,User, Score} = require('./src/main');
 const { MySql, dbSnake } = require('./src/connections/snakeMySQL');
 
 
@@ -32,6 +32,7 @@ const initMySql = async(login) => {
         console.log('OK connection..');
         //Users
         User.init(mysql);
+        Score.init(mysql);
 
     } catch (error) {
      console.error(error);

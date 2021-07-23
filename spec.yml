@@ -138,4 +138,60 @@ paths:
           description: created  
       tags:
         - "User"
- 
+  /scores:
+    get:
+      summary: Obtiene el ranking
+      description: Obtener ranking del juego
+      operationId: getScores
+      requestBody:
+        description: Ranking de puntos
+        required: true
+        content:
+          application/json:
+            schema:
+               type: object
+               $ref: '#/components/schemas/scores'
+      responses:
+        '200':
+          description: OK
+  /scores/{id}:
+    parameters:
+        - name: id_score
+          in: path
+          required: true
+          schema:
+            type: string
+    get:
+      summary: Obtiene el puntaje por id
+      operationId: getScore
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                $ref: '#/components/schemas/scores'
+  /scores/create:
+    post:
+      summary: Crear un nuevo puntaje
+      operationId: createScore
+      requestBody:
+        description: Creacion de un nuevo puntaje
+        required: true
+        content:
+          application/json:
+            schema:      # Request body contents
+              type: object
+              properties: 
+                id_user:
+                  type: integer
+                puntos:
+                  type: integer
+                fecha:
+                  type: string
+                  format: date-time  
+                   
+      responses:
+         '200':
+          description: created  
