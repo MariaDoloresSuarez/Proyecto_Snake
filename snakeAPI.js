@@ -33,22 +33,42 @@ const getUsers = async () => {
  console.log(result);
 
  for (var i=0;i<result.length;i++){
-     const resu_username=result[i].username;
-     const resu_fullname=result[i].fullname;
-     const resu_email=result[i].email;
+    // const resu_username=result[i].username;
+    // const resu_fullname=result[i].fullname;
+     //const resu_email=result[i].email;
+     //console.log("largo"+ result.length);
+     //console.log("i",+i);
+    //  var d = '<tr>'+
+    //  '<th>ID</th>'+
+    //  '<th>Nombres</th>'+
+    //  '<th>Apellidos</th>'+
+    //  '</tr>';
 
-    console.log(resu_username,resu_fullname,resu_email);
+    //   d+= '<tr>'+
+    //  '<td>'+result[i].username+'</td>'+
+    //  '<td>'+result[i].fullname+'</td>'+
+    //   '<td>'+result[i].email+'</td>'+
+    //    '</tr>';
+
+    // }
+    // $("#users tbody").append(d);
+
+
+    $( "#users tbody" ).append( "<tr>" +
+          "<td>" + result[i].username+ "</td>" +
+          "<td>" + result[i].fullname + "</td>" +
+          "<td>" + result[i].email+ "</td>" +
+        "</tr>" );
+   // console.log(resu_username,resu_fullname,resu_email);
     
 
-    document.getElementById('nombre').innerHTML = resu_username;
-    document.getElementById('fullname').innerHTML = resu_fullname;
-    document.getElementById('email').innerHTML = resu_email;
+    // document.getElementById('nombre').innerHTML = resu_username;
+    // document.getElementById('fullname').innerHTML = resu_fullname;
+    // document.getElementById('email').innerHTML = resu_email;
 
-    
-    }
    
   
-
+ }
 
 })();
 
