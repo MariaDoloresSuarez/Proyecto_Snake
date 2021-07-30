@@ -28,6 +28,8 @@ const createUser = async (id, username, fullname, email, password) => {
   });
   //console.log("2.s");
 
+  return user;
+
   return  `El usuario id: ${user.id} se creó exitosamente`;
   
 }

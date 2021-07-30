@@ -8,6 +8,7 @@ router.get('/', (req, res) => {
     // let users = getUsers();
       res.status(200);
       res.send(users);
+      console.log('usuario'+ users.username);
     }).catch((error)=>{
       res.sendStatus(500);
     });
