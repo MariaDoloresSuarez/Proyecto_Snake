@@ -33,10 +33,12 @@
  
       // From http://www.whatwg.org/specs/web-apps/current-work/multipage/states-of-the-type-attribute.html#e-mail-state-%28type=email%29
       emailRegex = /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/,
+      id = $( "#id" ),
       name = $( "#name" ),
+      fullname= $( "#fullname" ),
       email = $( "#email" ),
       password = $( "#password" ),
-      allFields = $( [] ).add( name ).add( email ).add( password ),
+      allFields = $( [] ).add( name ).add( fullname ).add( email ).add( password ),
       tips = $( ".validateTips" );
  
     function updateTips( t ) {
@@ -72,20 +74,24 @@
     function addUser() {
       var valid = true;
       allFields.removeClass( "ui-state-error" );
- 
       valid = valid && checkLength( name, "username", 3, 16 );
+      valid = valid && checkLength( fullname, "fullname", 3, 16 );
       valid = valid && checkLength( email, "email", 6, 80 );
       valid = valid && checkLength( password, "password", 5, 16 );
+
  
       valid = valid && checkRegexp( name, /^[a-z]([0-9a-z_\s])+$/i, "Username may consist of a-z, 0-9, underscores, spaces and must begin with a letter." );
+      valid = valid && checkRegexp( fullname, /^[a-z]([0-9a-z_\s])+$/i, "Username may consist of a-z, 0-9, underscores, spaces and must begin with a letter." );
       valid = valid && checkRegexp( email, emailRegex, "eg. ui@jquery.com" );
       valid = valid && checkRegexp( password, /^([0-9a-zA-Z])+$/, "Password field only allow : a-z 0-9" );
  
       if ( valid ) {
         $( "#users tbody" ).append( "<tr>" +
+          "<td>" + id.val() + "</td>" +
           "<td>" + name.val() + "</td>" +
+          "<td>" + fullname.val() + "</td>" +
           "<td>" + email.val() + "</td>" +
-          "<td>" + password.val() + "</td>" +
+          // "<td>" + password.val() + "</td>" +
         "</tr>" );
         dialog.dialog( "close" );
       }
@@ -127,8 +133,12 @@
  
   <form>
     <fieldset>
+      <label for="id">User Id</label>
+      <input type="text" name="id" id="id" value="0" class="text ui-widget-content ui-corner-all">
       <label for="name">Name</label>
       <input type="text" name="name" id="name" value="Jane Smith" class="text ui-widget-content ui-corner-all">
+      <label for="name">Fullname</label>
+      <input type="text" name="fullname" id="fullname" value="Jane Smith" class="text ui-widget-content ui-corner-all">
       <label for="email">Email</label>
       <input type="text" name="email" id="email" value="jane@smith.com" class="text ui-widget-content ui-corner-all">
       <label for="password">Password</label>
@@ -146,16 +156,20 @@
   <table id="users" class="ui-widget ui-widget-content">
     <thead>
       <tr class="ui-widget-header ">
+        <th>User Id</th>
         <th>Name</th>
+        <th>Fullname</th>
         <th>Email</th>
         <th>Password</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td>John Doe</td>
+        <td>0</td>
+        <td>DOLO</td>
+        <th>Dolores Suarez</th>
         <td>john.doe@example.com</td>
-        <td>johndoe1</td>
+        <!-- <td>johndoe1</td> -->
       </tr>
     </tbody>
   </table>

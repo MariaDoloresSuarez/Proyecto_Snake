@@ -57,6 +57,8 @@
             <fieldset>
                 <label for="name">Name</label>
                 <input type="text" name="name" id="name" value="Jane Smith">
+                <label for="fullname">Fullname</label>
+                <input type="text" name="fullname" id="fullname" value="Jane Smith">
                 <br>
                 <label for="email">Email</label>
                 <input type="text" name="email" id="email" value="jane@smith.com">
@@ -70,14 +72,17 @@
     </div>
     <br>
     <!-- <div id="users-contain" class="ui-widget"> -->
-    <div class="table-responsive-md">
+    <!-- <div class="table-responsive-md scroll"> -->
         <h2>USUARIOS REGISTRADOS:</h2>
-
+        
+        <div class="table-responsive-md scroll">
         <!-- <table id="users" class="ui-widget ui-widget-content"> -->
         <table id="users" class="table table-striped table-dark table-bordered">
+           
             <thead class="table-dark">
                 <!-- <tr class="ui-widget-header "> -->
                 <tr>
+                    <th>User Id</th>
                     <th>Name</th>
                     <th>Fullname</th>
                     <th>Email</th>
@@ -100,8 +105,11 @@
 
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script src="/jQueryUsers.js"></script>
-     <script type="module" src="/snakeAPI.js"></script>
+    <script type="module" src="/snakeAPI.js"></script>
+    <script type="module" src="/jQueryUsers.js"></script>
+   
+    
+     
 </body>
 
 </html>

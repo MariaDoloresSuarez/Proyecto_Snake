@@ -15,8 +15,9 @@ const callAPISnake = async (url, parameters, data) => {
     };
     _parameters = Object.assign(_parameters, parameters);
     _parameters.body = JSON.stringify(data);
-
+  
     return fetch(url, _parameters);
+
 }
 
 const getUsers = async () => {
@@ -27,67 +28,44 @@ const getUsers = async () => {
     return data;
 
 }
+
 (async()=>{
- console.log('API');
+ //console.log('API');
  const result=await getUsers();
- console.log(result);
+// console.log(result);
 
  for (var i=0;i<result.length;i++){
-    // const resu_username=result[i].username;
-    // const resu_fullname=result[i].fullname;
-     //const resu_email=result[i].email;
-     //console.log("largo"+ result.length);
-     //console.log("i",+i);
-    //  var d = '<tr>'+
-    //  '<th>ID</th>'+
-    //  '<th>Nombres</th>'+
-    //  '<th>Apellidos</th>'+
-    //  '</tr>';
-
-    //   d+= '<tr>'+
-    //  '<td>'+result[i].username+'</td>'+
-    //  '<td>'+result[i].fullname+'</td>'+
-    //   '<td>'+result[i].email+'</td>'+
-    //    '</tr>';
-
-    // }
-    // $("#users tbody").append(d);
-
-
     $( "#users tbody" ).append( "<tr>" +
+          "<td>" + result[i].id+ "</td>" +
           "<td>" + result[i].username+ "</td>" +
           "<td>" + result[i].fullname + "</td>" +
           "<td>" + result[i].email+ "</td>" +
         "</tr>" );
-   // console.log(resu_username,resu_fullname,resu_email);
-    
-
-    // document.getElementById('nombre').innerHTML = resu_username;
-    // document.getElementById('fullname').innerHTML = resu_fullname;
-    // document.getElementById('email').innerHTML = resu_email;
-
-   
-  
  }
 
 })();
 
-// const createUser = async (user) => {
-//     const url = 'http://localhost:3000/v1/users/create';
-//     const parameters = {method:'POST'};
-//     const res = await callAPISnake(url, parameters,user);
-//     const data = await res.json();
-//     return data;
-//   }
+const createUser = async (user) => {
+    const url = 'http://localhost:3000/v1/users/create';
+    const parameters = {method:'POST'};
+    const res = await callAPISnake(url, parameters,user);
+    const data = await res.json();
+    //return data
+    console.log("data" + data);
+  }
 
 //   (async () => {
+//       const username=$( "#name" );
+//       const fullname=$( "#fullname" );
+//       const email=$( "#email" )
+//       const pass=$( "#password" )
 //     const result = await createUser(
 //                                       {
-//                                       username:'gggg',
-//                                       fullname:'gggg',
-//                                       email:'fggg@gmail.com',
-//                                       password:'123456'});
+//                                       username: username.val(),
+//                                       fullname:fullname.val(),
+//                                       email:email.val(),
+//                                       password:pass.val()});
 //     console.log(result);
 //   })();
 
-  
+export {createUser};

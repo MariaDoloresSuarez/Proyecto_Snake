@@ -62,6 +62,10 @@ td{
    
 }
 
+.scroll{
+    overflow-y: scroll;
+    height:  250px;;
+  }
 
 .btn-outline-dark {
 color: #007bff;
