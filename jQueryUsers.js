@@ -106,7 +106,7 @@ $( function() {
  
     dialog = $( "#dialog-form" ).dialog({
       autoOpen: false,
-      height: 550,
+      height: 450,
       width: 350,
       modal: true,
        buttons: {
@@ -129,5 +129,11 @@ $( function() {
     $( "#create-user" ).button().on( "click", function() {
       dialog.dialog( "open" );
     });
+
+    $( "#modif-user" ).button().on( "click", function() {
+      dialog.dialog( "open" );
+    });
+
+
   } );
 
