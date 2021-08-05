@@ -50,7 +50,7 @@
                 </div>
         </header>
     <!-- </div> -->
-
+<!-- VENTANA CREATE -->
     <div id="dialog-form" title="Create new user">
         <p class="validateTips">All form fields are required.</p>
         <form>
@@ -71,6 +71,36 @@
         </form>
     </div>
     <br>
+    <!--  VENTANA UPDATE -->
+    <div id="dialog-form" title="Update User">
+        <p class="modifiTips">Datos requeridos para la busqueda</p>
+        <form>
+            <fieldset>
+                <label for="userId">User id:</label>
+                <input type="text" name="userId" id="userId">
+                <label for="fullname">Fullname:</label>
+                <input type="text" name="fullname" id="fullname">
+                
+            
+                <input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
+            </fieldset>
+        </form>
+    </div>
+    <!-- VENTANA DELETE -->
+    <div id="dialog-form" title="Delete User">
+        <p class="deleteTips">Datos requeridos para la busqueda</p>
+        <form>
+            <fieldset>
+                <label for="userId">User id:</label>
+                <input type="text" name="userId" id="userId">
+                <label for="fullname">Fullname:</label>
+                <input type="text" name="fullname" id="fullname">
+                
+            
+                <input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
+            </fieldset>
+        </form>
+    </div>
     <!-- <div id="users-contain" class="ui-widget"> -->
     <!-- <div class="table-responsive-md scroll"> -->
         <!-- <h2>USUARIOS REGISTRADOS:</h2> -->
@@ -121,7 +151,7 @@
    <!-- <div class="containerButton"> -->
     <button id="create-user" class="but">Crear usuario</button>
     <button id="modif-user" class="but">Modificar usuario</button>
-    <button id="create-user" class="but">Eliminar usuario</button>
+    <button id="delete-user" class="but">Eliminar usuario</button>
 <!-- </div> -->
     <div class="footer-dark">
         <footer>
