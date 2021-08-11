@@ -34,6 +34,13 @@ const getUsers = async () => {
  const result=await getUsers();
 // console.log(result);
 
+// //Ejemplo para hacerlo programaticamente
+// let tabla = document.createElement("div"); //table
+// tabla.classList.add("clasecss");
+// tabla.setAttribute("scr",'');
+// tabla.textContent = "texto dentro del div";
+// tabla.innerHTML ="codigo html";
+
  for (var i=0;i<result.length;i++){
     $( "#users tbody" ).append( "<tr>" +
           "<td>" + result[i].id+ "</td>" +
@@ -45,13 +52,27 @@ const getUsers = async () => {
 
 })();
 
+
+//Búsqueda de usuario por ID
+
+
+const getUserById = async (user) => {
+    const url = 'http://localhost:3000/v1/users/'+user;
+    const parameters = {};
+    const res = await callAPISnake(url, parameters);
+    const data =await res.json();
+    console.log('datagetid' +data);
+    return data;
+
+}
+
 const createUser = async (user) => {
     const url = 'http://localhost:3000/v1/users/create';
     const parameters = {method:'POST'};
     const res = await callAPISnake(url, parameters,user);
     const data = await res.json();
-    //return data
-    console.log("data" + data);
+    return data;
+    //console.log("data" + data);
   }
 
 //   (async () => {
@@ -68,4 +89,40 @@ const createUser = async (user) => {
 //     console.log(result);
 //   })();
 
-export {createUser};
+//Para borrar un usuario
+const deleteUser = async () => {
+    const url = 'http://localhost:3000/v1/users/id';
+    const parameters = {method:'DELETE',id:"#userId"};
+    const res = await callAPISnake(url, parameters);
+    const data = await res.json();
+    return data;
+    //console.log("data" + data);
+  }
+
+
+//para el ranking
+const getScores = async () => {
+    const url = 'http://localhost:3000/v1/scores';
+    const parameters = {};
+    const res = await callAPISnake(url, parameters);
+    const data =await res.json();
+    return data;
+
+}
+
+
+(async()=>{
+    const result=await getScores();
+
+   for (var i=0;i<result.length;i++){
+    $( "#listaScore #list-it" ).append( "<ul>" +
+    "<li>" + result[i].username + "</li>" +
+    "<span>" + result[i].puntos+ "</span>" +
+    "</ul>" 
+    );
+ }
+   
+   })();
+   
+
+export {createUser,getUserById,deleteUser};

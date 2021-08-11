@@ -491,7 +491,8 @@ main #container1 .casillero.food {
 /* RANKING 2 */
 
 
-.lista2 .list-it{
+.lista2 .list-it 
+{
   display: flex;
   padding: .75rem 1.25rem;
   flex-direction: column;
@@ -504,14 +505,17 @@ main #container1 .casillero.food {
 
 }
 .list-li{
-  display: flex;
+display: flex;
 padding: .75rem 1.25rem;
 justify-content: space-between!important;
 border-top-left-radius: .25rem;
 border-top-right-radius: .25rem;}
 
+
 @media (max-width:991px) {
-  .lista2 .list-it{
+  .lista2 
+  .list-it
+  {
       margin-left: -3px;
       margin-right: -3px;
   }
@@ -532,4 +536,18 @@ display: inline-block;} */
 .scroll{
   overflow-y: scroll;
   height:  250px;;
+}
+
+
+/* para el ranking */
+
+li{
+display: inline;
+margin-right: 250px;
+
+}
+
+main #container1 .casillero.food {
+  background-image: url(../images/manzana.png);
+  background-size:20px 20px;
 }

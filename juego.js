@@ -10,6 +10,8 @@ let snake = [1, 0];
 
 let newFood;
 
+let score = 0;
+
 const mov = (inc) => {
     let remove;
     let comi;
@@ -23,31 +25,69 @@ const mov = (inc) => {
             snake.unshift(parseInt(container.children[snake[index]].textContent) + inc);
             container.children[snake[index]].classList.toggle('headSnake');
 
+
             if (container.children[snake[index]].classList.contains('food')) {
                 comi = true;
+                score += 10;
+                
+                //para mostrar el score en pantalla       
+                document.getElementById("spanScore").innerHTML= score;
+
                 container.children[snake[index]].classList.toggle('food');
-                newFood = Math.floor((Math.random() * (100-0))+0);
-                container.children[newFood].classList.add('food');
+                newFood = Math.floor((Math.random() * (20 - 0)) + 0);
+                //container.children[newFood].classList.add('food');
+                
             } else {
                 comi = false;
             }
+        
 
-            
+        if (container.children[snake[index]].classList.contains('bodySnake')) {
 
-        } else {
+            alert("Game over");
 
-            container.children[snake[index]].classList.toggle('bodySnake');
+        } 
+
+       // console.log(container);
+
+        // if (snake[index] !== document.getElementById('container1')) {
 
 
-            if (!comi) {
-                remove = snake.pop();
-                container.children[remove].classList.toggle('bodySnake');
-            }
-            break;
+        //     alert("Game over");
+
+        // } else {
+
+        // }
+
+
+    } else {
+
+      
+        container.children[snake[index]].classList.toggle('bodySnake');
+
+        if (!comi) {
+            remove = snake.pop();
+            container.children[remove].classList.toggle('bodySnake');
         }
 
+
+        if (container.children[newFood].classList.contains('bodySnake')) {
+            newFood = Math.floor((Math.random() * (20 - 0)) + 0);
+            //container.children[newFood].classList.add('food');
+        } else {
+            container.children[newFood].classList.add('food');
+        }
+
+        break;
+
+
     }
+
+
 }
+
+}
+
 
 let event_before = "ArrowRight";
 

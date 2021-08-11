@@ -9,11 +9,11 @@ const getUsers = async () => {
 
 const getUserById = async (id) => {
   const usuario = await User.findByPk(id);
-  if (usuario) {
+  // if (usuario) {
     return usuario;
-} else {
-    return `El usuario id: ${id} no existe`;
-}
+// } else {
+//   return `El usuario id: ${id} no existe`;
+// }
  
 }
 
@@ -30,7 +30,7 @@ const createUser = async (id, username, fullname, email, password) => {
 
   return user;
 
-  return  `El usuario id: ${user.id} se creó exitosamente`;
+ // return  `El usuario id: ${user.id} se creó exitosamente`;
   
 }
 
