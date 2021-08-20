@@ -10,7 +10,7 @@ const dbSnake = {
 }
 
 const sqlRawQueries ={
-    getScores:'SELECT * FROM scores, users WHERE id=id_user order by puntos desc',
+    getScores:'SELECT max(puntos) as puntos,username FROM scores, users WHERE id=id_user group by id_user order by 1 desc',
     getScoreById:'SELECT * FROM scores WHERE id_score = $id_score',
     createScore: 'INSERT INTO scores (id_score,id_user,puntos,fecha) VALUES($id_score,$id_user,$puntos,$fecha)'
 }

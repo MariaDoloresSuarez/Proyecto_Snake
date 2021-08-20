@@ -339,185 +339,185 @@ $( function() {
   
     } );
 
-// // ELIMINAR USUARIOS
-// $( function() {
+// ELIMINAR USUARIOS
+$( function() {
   
-//   var dialog, form,
+  var dialog, form,
 
-//     // From http://www.whatwg.org/specs/web-apps/current-work/multipage/states-of-the-type-attribute.html#e-mail-state-%28type=email%29
-//     emailRegex = /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/,
-//     // name = $( "#name" ),
-//     // fullname = $( "#fullname" ),
-//     // email = $( "#email" ),
-//     // password = $( "#password" ),
-//     // allFields = $( [] ).add( name ).add( fullname ).add( email ).add( password ),
-//     id= $( "#userId" ),
-//     name = $( "#username" ),
-//     allFields = $( [] ).add( id ).add( name ),
-//     tips = $( ".deleteTips" );
+    // From http://www.whatwg.org/specs/web-apps/current-work/multipage/states-of-the-type-attribute.html#e-mail-state-%28type=email%29
+    emailRegex = /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/,
+    // name = $( "#name" ),
+    // fullname = $( "#fullname" ),
+    // email = $( "#email" ),
+    // password = $( "#password" ),
+    // allFields = $( [] ).add( name ).add( fullname ).add( email ).add( password ),
+    id= $( "#userId" ),
+    name = $( "#username" ),
+    allFields = $( [] ).add( id ).add( name ),
+    tips = $( ".deleteTips" );
 
-//      console.log("id dialog delete"+id.val());
-//      console.log("name dialog delete"+name.val());
+     console.log("id dialog delete"+id.val());
+     console.log("name dialog delete"+name.val());
 
-//   function updateTips( t ) {
-//     tips
-//       .text( t )
-//       .addClass( "ui-state-highlight" );
-//     setTimeout(function() {
-//       tips.removeClass( "ui-state-highlight", 1500 );
-//     }, 500 );
-//   }
+  function updateTips( t ) {
+    tips
+      .text( t )
+      .addClass( "ui-state-highlight" );
+    setTimeout(function() {
+      tips.removeClass( "ui-state-highlight", 1500 );
+    }, 500 );
+  }
 
-//   function checkLength( o, n, min, max ) {
-//     if ( o.val().length > max || o.val().length < min ) {
-//       o.addClass( "ui-state-error" );
-//       updateTips( "Length of " + n + " must be between " +
-//         min + " and " + max + "." );
-//       return false;
-//     } else {
-//       return true;
-//     }
-//   }
+  function checkLength( o, n, min, max ) {
+    if ( o.val().length > max || o.val().length < min ) {
+      o.addClass( "ui-state-error" );
+      updateTips( "Length of " + n + " must be between " +
+        min + " and " + max + "." );
+      return false;
+    } else {
+      return true;
+    }
+  }
 
-//   function checkRegexp( o, regexp, n ) {
-//     if ( !( regexp.test( o.val() ) ) ) {
-//       o.addClass( "ui-state-error" );
-//       updateTips( n );
-//       return false;
-//     } else {
-//       return true;
-//     }
-//   }
+  function checkRegexp( o, regexp, n ) {
+    if ( !( regexp.test( o.val() ) ) ) {
+      o.addClass( "ui-state-error" );
+      updateTips( n );
+      return false;
+    } else {
+      return true;
+    }
+  }
 
-//   function addUser() {
-//     var valid = true;
-//     allFields.removeClass( "ui-state-error" );
+  function addUser() {
+    var valid = true;
+    allFields.removeClass( "ui-state-error" );
 
-//     if(valid){
+    if(valid){
 
-//       //valida si no ingresa id o nombre
-//       if(id.val()===""&& name.val()===""){
+      //valida si no ingresa id o nombre
+      if(id.val()===""&& name.val()===""){
 
-//       window.alert('Debe ingresar el id o nombre de usuario que desea eliminar');
+      window.alert('Debe ingresar el id o nombre de usuario que desea eliminar');
 
-//       //si ingresa id
-//       } else if (id.val()!=""&& name.val()===""){
+      //si ingresa id
+      } else if (id.val()!=""&& name.val()===""){
 
-//        console.log('Ingreso el ID para borrar'+id.val());
+       console.log('Ingreso el ID para borrar'+id.val());
 
-//        valid = valid && checkLength( id, "User id", 3, 16 );
-//        valid = valid && checkRegexp( id, /^([0-9])+$/i, "User id may consist of 0-9"  );
+       valid = valid && checkLength( id, "User id", 3, 16 );
+       valid = valid && checkRegexp( id, /^([0-9])+$/i, "User id may consist of 0-9"  );
 
-//          const uid=id.val();
-//          console.log('id delete'+ id.val());
-//          console.log('uid'+uid);
+         const uid=id.val();
+         console.log('id delete'+ id.val());
+         console.log('uid'+uid);
 
          
 
-//          (async () => {
+         (async () => {
        
-//           const result=await deleteUser(uid);
-//           console.log('result delete' + result.val());
+          const result=await deleteUser(uid);
+          console.log('result delete' + result.val());
         
-//           })();
+          })();
 
-//       }else if (id.val()==="" && name.val()!=""){
+      }else if (id.val()==="" && name.val()!=""){
 
-//        valid = valid && checkLength( name, "Username", 3, 16 );
-//        valid = valid && checkRegexp( name, /^[a-z]([0-9a-z_\s])+$/i, "Username may consist of a-z, 0-9, underscores, spaces and must begin with a letter." );
+       valid = valid && checkLength( name, "Username", 3, 16 );
+       valid = valid && checkRegexp( name, /^[a-z]([0-9a-z_\s])+$/i, "Username may consist of a-z, 0-9, underscores, spaces and must begin with a letter." );
 
-//        console.log('Ingreso el username'+name.val());
+       console.log('Ingreso el username'+name.val());
 
-//       }
-//       //console.log('valid salida'+ valid);
+      }
+      //console.log('valid salida'+ valid);
 
      
-//    //    if (valid)
-//    //   console.log('id_user'+id.val());
+   //    if (valid)
+   //   console.log('id_user'+id.val());
 
 
-//     }
+    }
 
-//    //  valid = valid && checkLength( id, "userID", 3, 16 );
-//    //  console.log("adduser id update " + id.val());
+   //  valid = valid && checkLength( id, "userID", 3, 16 );
+   //  console.log("adduser id update " + id.val());
 
-//    // valid = valid && checkLength( fullname, "fullname", 3, 16 );
-//    // console.log("adduser fullname " + fullname.val());
-//    // valid = valid && checkLength( email, "email", 6, 80 );
-//    // console.log("adduser email " + email.val());
-//    // valid = valid && checkLength( password, "password", 5, 16 );
-//    // console.log("adduser password " + password.val());
+   // valid = valid && checkLength( fullname, "fullname", 3, 16 );
+   // console.log("adduser fullname " + fullname.val());
+   // valid = valid && checkLength( email, "email", 6, 80 );
+   // console.log("adduser email " + email.val());
+   // valid = valid && checkLength( password, "password", 5, 16 );
+   // console.log("adduser password " + password.val());
 
-//    // valid = valid && checkRegexp( name, /^[a-z]([0-9a-z_\s])+$/i, "Username may consist of a-z, 0-9, underscores, spaces and must begin with a letter." );
-//    // valid = valid && checkRegexp( fullname, /^[a-z]([0-9a-z_\s])+$/i, "Fullname may consist of a-z, 0-9, underscores, spaces and must begin with a letter." );
-//    // valid = valid && checkRegexp( email, emailRegex, "eg. ui@jquery.com" );
-//    // valid = valid && checkRegexp( password, /^([0-9a-zA-Z])+$/, "Password field only allow : a-z 0-9" );
+   // valid = valid && checkRegexp( name, /^[a-z]([0-9a-z_\s])+$/i, "Username may consist of a-z, 0-9, underscores, spaces and must begin with a letter." );
+   // valid = valid && checkRegexp( fullname, /^[a-z]([0-9a-z_\s])+$/i, "Fullname may consist of a-z, 0-9, underscores, spaces and must begin with a letter." );
+   // valid = valid && checkRegexp( email, emailRegex, "eg. ui@jquery.com" );
+   // valid = valid && checkRegexp( password, /^([0-9a-zA-Z])+$/, "Password field only allow : a-z 0-9" );
 
-//    // if ( valid ) {
-//    //   (async () => {
-//    //     console.log('valid'+ name.val());
-//    //     // const username=$( "#name" );
-//    //     // const fullname=$( "#fullname" );
-//    //     // const email=$( "#email" )
-//    //     // const pass=$( "#password" )
-//    //   const result = await createUser(
-//    //                                     {
-//    //                                     username: name.val(),
-//    //                                     fullname:fullname.val(),
-//    //                                     email:email.val(),
-//    //                                     password:password.val()});
-//    //   console.log('username' + username);
+   // if ( valid ) {
+   //   (async () => {
+   //     console.log('valid'+ name.val());
+   //     // const username=$( "#name" );
+   //     // const fullname=$( "#fullname" );
+   //     // const email=$( "#email" )
+   //     // const pass=$( "#password" )
+   //   const result = await createUser(
+   //                                     {
+   //                                     username: name.val(),
+   //                                     fullname:fullname.val(),
+   //                                     email:email.val(),
+   //                                     password:password.val()});
+   //   console.log('username' + username);
      
-//    // })();
+   // })();
 
-//    // window.alert("El usuario: " + name.val() + " se creó correctamente");
+   // window.alert("El usuario: " + name.val() + " se creó correctamente");
 
-//    //   $( "#users tbody" ).append(
-//    //   location.reload());
+   //   $( "#users tbody" ).append(
+   //   location.reload());
 
-//    //   // dialog.dialog( "close" );
+   //   // dialog.dialog( "close" );
 
-//    // //   $( "#users tbody" ).append( "<tr>" +
-//    // //   // "<td>" + id.val() + "</td>" +
-//    // //   "<td>" + name.val() + "</td>" +
-//    // //   "<td>" + fullname.val() + "</td>"+
-//    // //   "<td>" + email.val() + "</td>" +
-//    // //   // "<td>" + password.val() + "</td>" +
-//    // // "</tr>");
-//    // // dialog.dialog( "close" );
+   // //   $( "#users tbody" ).append( "<tr>" +
+   // //   // "<td>" + id.val() + "</td>" +
+   // //   "<td>" + name.val() + "</td>" +
+   // //   "<td>" + fullname.val() + "</td>"+
+   // //   "<td>" + email.val() + "</td>" +
+   // //   // "<td>" + password.val() + "</td>" +
+   // // "</tr>");
+   // // dialog.dialog( "close" );
 
-//    //   console.log("name1" + name.val());
+   //   console.log("name1" + name.val());
      
-//    // }
-//    // return valid;
+   // }
+   // return valid;
    
-//  }
+ }
 
-//   dialog = $( "#dialog-form" ).dialog({
-//     autoOpen: false,
-//     height: 450,
-//     width: 350,
-//     modal: true,
-//      buttons: {
-//        "Confirmar": addUser,
-//        Cancelar: function() {
-//        dialog.dialog( "close" );
-//        }
-//      },
-//     close: function() {
-//       form[ 0 ].reset();
-//       allFields.removeClass( "ui-state-error" );
-//     }
-//   });
+  dialog = $( "#dialog-form" ).dialog({
+    autoOpen: false,
+    height: 450,
+    width: 350,
+    modal: true,
+     buttons: {
+       "Confirmar": addUser,
+       Cancelar: function() {
+       dialog.dialog( "close" );
+       }
+     },
+    close: function() {
+      form[ 0 ].reset();
+      allFields.removeClass( "ui-state-error" );
+    }
+  });
 
-//   form = dialog.find( "form" ).on( "submit", function( event ) {
-//     event.preventDefault();
-//     addUser();
-//   });
+  form = dialog.find( "form" ).on( "submit", function( event ) {
+    event.preventDefault();
+    addUser();
+  });
 
-//   $( "#delete-user" ).button().on( "click", function() {
-//     dialog.dialog( "open" );
-//   });
+  $( "#delete-user" ).button().on( "click", function() {
+    dialog.dialog( "open" );
+  });
 
 
-// } );
+} );

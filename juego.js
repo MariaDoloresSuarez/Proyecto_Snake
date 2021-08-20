@@ -93,6 +93,8 @@ let event_before = "ArrowRight";
 
 body.addEventListener('keydown', (event) => {
 
+    event.preventDefault();
+    //  event.stopPropagation();// evita la propagacion del evento
     if (event.key === "ArrowRight") {
         if (event_before !== "ArrowLeft") {
             mov(1);
