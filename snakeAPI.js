@@ -89,16 +89,28 @@ const createUser = async (user) => {
 //     console.log(result);
 //   })();
 
+//para modificar
+const updateUser = async (user) => {
+    console.log("user"+ user);
+    const url = "http://localhost:3000/v1/users/"+user.id;
+    console.log("url"+url);
+    const parameters = {method:'PUT',body:user};
+    //console.log("user parameters"+body);
+    const res = await callAPISnake(url, parameters,user);
+    //console.log("res"+res);
+    const data = await res.json();
+    //console.log('data :'+ JSON.stringify(data));
+    return data;
+}
 //Para borrar un usuario
-const deleteUser = async () => {
-    const url = 'http://localhost:3000/v1/users/id';
-    const parameters = {method:'DELETE',id:"#userId"};
-    const res = await callAPISnake(url, parameters);
+const deleteUser = async (user) => {
+    const url = 'http://localhost:3000/v1/users/'+user.id;
+    const parameters = {method:'DELETE'};
+    const res = await callAPISnake(url, parameters,user);
     const data = await res.json();
     return data;
     //console.log("data" + data);
   }
-
 
 //para el ranking
 const getScores = async () => {
@@ -125,4 +137,4 @@ const getScores = async () => {
    })();
    
 
-export {createUser,getUserById,deleteUser};
+export {createUser,getUserById,deleteUser,updateUser};

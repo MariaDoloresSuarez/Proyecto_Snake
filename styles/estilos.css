@@ -611,3 +611,22 @@ margin-right: 250px; */
       /* background-color: #5363ab */
   }
 }
+/* VENTANA sWAL */
+.swal2-center>.swal2-popup {
+  background-color: #1c1b1b!important;
+}
+
+.swal2-popup.swal2-toast .swal2-title {
+background-color: #1c1b1b!important;
+
+  /* font-family: 'Orbitron', sans-serif; */
+
+}
+
+.swal2-shown .swal2-title {
+  font-family: 'Orbitron', sans-serif;
+  /* color: #05e200!important; */
+  font-weight: unset;
+  color: #fffab1!important;
+
+}

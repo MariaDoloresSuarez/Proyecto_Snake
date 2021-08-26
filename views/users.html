@@ -56,14 +56,14 @@
         <form>
             <fieldset>
                 <label for="name">Name</label>
-                <input type="text" name="name" id="name" value="Jane Smith">
+                <input type="text" name="name" id="name" value="">
                 <label for="fullname">Fullname</label>
-                <input type="text" name="fullname" id="fullname" value="Jane Smith">
+                <input type="text" name="fullname" id="fullname" value="">
                 <br>
                 <label for="email">Email</label>
-                <input type="text" name="email" id="email" value="jane@smith.com">
+                <input type="text" name="email" id="email" value="">
                 <label for="password">Password</label>
-                <input type="password" name="password" id="password" value="xxxxxxx">
+                <input type="password" name="password" id="password" value="">
 
                 <!-- Allow form submission with keyboard without duplicating the dialog button -->
                 <input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
@@ -73,14 +73,19 @@
     <br>
     <!--  VENTANA UPDATE -->
     <div id="dialog-form" title="Update User">
-        <p class="modifiTips">Datos requeridos para la busqueda</p>
+        <p class="modifiTips">User Id es requerido para la busqueda</p>
         <form>
             <fieldset>
-                <label for="userId">User id:</label>
-                <input type="text" name="userId" id="userId">
-                <label for="username">Username:</label>
-                <input type="text" name="username" id="username">
-                
+                <label for="userIdUpdate">User id:</label>
+                <input type="text" name="userIdUpdate" id="userIdUpdate">
+                <label for="usernameUpdate">Username:</label>
+                <input type="text" name="usernameUpdate" id="usernameUpdate">
+                <label for="fullnameUpdate">Fullname</label>
+                <input type="text" name="fullnameUpdate" id="fullnameUpdate">
+                <label for="emailUpdate">Email</label>
+                <input type="text" name="emailUpdate" id="emailUpdate">
+                <label for="passwordUpdate">Password</label>
+                <input type="password" name="passwordUpdate" id="passwordUpdate">
             
                 <input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
             </fieldset>
@@ -88,14 +93,19 @@
     </div>
     <!-- VENTANA DELETE -->
     <div id="dialog-form" title="Delete User">
-        <p class="deleteTips">Datos requeridos para la busqueda</p>
+        <p class="deleteTips">User Id es requerido para la busqueda</p>
         <form>
             <fieldset>
-                <label for="userId">User id:</label>
-                <input type="text" name="userId" id="userId">
-                <label for="username">Username:</label>
-                <input type="text" name="username" id="username">
-                
+                <label for="userIdDelete">User id:</label>
+                <input type="text" name="userIdDelete" id="userIdDelete">
+                <label for="usernameDelete">Username:</label>
+                <input type="text" name="usernameDelete" id="usernameDelete">
+                <label for="fullnameDelete">Fullname</label>
+                <input type="text" name="fullnameDelete" id="fullnameDelete">
+                <label for="emailDelete">Email</label>
+                <input type="text" name="emailDelete" id="emailDelete">
+                <label for="passwordDelete">Password</label>
+                <input type="password" name="passwordDelete" id="passwordDelete">
             
                 <input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
             </fieldset>
@@ -184,8 +194,15 @@
     </div>
 
 
+    <!-- <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script type="module" src="/snakeAPI.js"></script>
+    <script type="module" src="/jQueryUsers.js"></script> -->
+
+
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script type="module" src="/snakeAPI.js"></script>
     <script type="module" src="/jQueryUsers.js"></script>
 </body>
