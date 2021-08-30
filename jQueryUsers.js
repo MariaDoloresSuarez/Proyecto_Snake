@@ -28,8 +28,6 @@ $(function () {
     }
   });
 
-  // console.log("name dialog"+name.val());
-
 
   function updateTips(t) {
     tips
@@ -85,7 +83,6 @@ $(function () {
               email: email.val(),
               password: password.val()
             });
-          console.log("result" + result);
 
           Toast.fire({
             icon: 'success',
@@ -101,7 +98,11 @@ $(function () {
 
         } catch (err) {
 
-          console.log("Error al crear el usuario" + err);
+          Toast.fire({
+            icon: 'error',
+            title: 'Ya existe un usuario con mail: ' + email.val()
+          });
+          $("#email").val("");
         }
       })();
 
@@ -175,10 +176,9 @@ $(function () {
       tips.removeClass("ui-state-highlight", 1500);
     }, 500);
   }
-  console.log('funcion updateTips update' + tips.val());
+
 
   function checkLength(o, n, min, max) {
-    console.log('funcion checkLength update' + max);
     if (o.val().length > max || o.val().length < min) {
       o.addClass("ui-state-error");
       updateTips("Length of " + n + " must be between " +
@@ -191,7 +191,6 @@ $(function () {
   }
 
   function checkRegexp(o, regexp, n) {
-    console.log('funcion checkRegexp update' + o);
     if (!(regexp.test(o.val()))) {
       o.addClass("ui-state-error");
       updateTips(n);
@@ -206,9 +205,7 @@ $(function () {
     allFields.removeClass("ui-state-error");
 
     if (valid) {
-      //console.log("ID" + id.val());
       if (id.val() === "") {
-        // window.alert('Debe ingresar el id de usuario');
         Toast.fire({
           icon: 'warning',
           title: 'Debe ingresar el id de usuario'
@@ -216,33 +213,21 @@ $(function () {
 
       } else if (id.val() != "") {
 
-        console.log('Ingreso el ID ' + id.val());
-
-        //valid = valid && checkLength(id, "User id", 3, 16);
         valid = valid && checkRegexp(id, /^([0-9])+$/i, "User id may consist of 0-9");
-
-        console.log('id update' + id.val());
 
         if (valid) {
           (async () => {
 
             try {
-              console.log("valida antes de la busqueda" + id.val());
 
               const result = await getUserById(id.val());
-
-              //console.log('resultado busqueda id' + result.id);
 
               $("#usernameUpdate").val(result.username);
               $("#fullnameUpdate").val(result.fullname);
               $("#emailUpdate").val(result.email);
               $("#passwordUpdate").val(result.password);
-              //ACA CREO QUE DEBERIA ACTIVAR EL BOTON CONFIMRAR
-
 
             } catch (err) {
-              // window.alert("El usuario " + id.val() +" no existe");
-              // $("#userIdUpdate").val("");
 
               Toast.fire({
                 icon: 'warning',
@@ -270,8 +255,6 @@ $(function () {
     email = $("#emailUpdate");
     password = $("#passwordUpdate");
 
-    console.log("ingresa el name" + name);
-
     valid = valid && checkLength(name, "usernameUpdate", 3, 16);
     valid = valid && checkLength(fullname, "fullnameUpdate", 3, 16);
     valid = valid && checkLength(email, "emailUpdate", 6, 80);
@@ -282,7 +265,6 @@ $(function () {
     valid = valid && checkRegexp(email, emailRegex, "eg. ui@jquery.com");
     valid = valid && checkRegexp(password, /^([0-9a-zA-Z])+$/, "Password field only allow : a-z 0-9");
 
-    console.log("valida nuevos datos" + valid);
 
     if (valid) {
       // id=id.val();
@@ -294,7 +276,7 @@ $(function () {
       password = $("#passwordUpdate").val();
 
       (async () => {
-        console.log("name2" + id + name + fullname + email + password);
+
         try {
           const result = await updateUser({
             id: id,
@@ -307,8 +289,7 @@ $(function () {
             icon: 'success',
             title: 'El usuario: ' + id + ' se modificó correctamente '
 
-          });
-          // window.alert("El usuario " + id + " se modificó correctamente");
+          })
           $("#userIdUpdate").val("");
           $("#usernameUpdate").val("");
           $("#fullnameUpdate").val("");
@@ -327,7 +308,7 @@ $(function () {
             title: 'Error al modificar el usuario '
 
           });
-          // window.alert("Error al modificar el usuario") 
+
           return (err);
         };
 
@@ -500,9 +481,24 @@ $(function () {
         const result = await deleteUser({ id: id });
         console.log("result" + result);
 
+        Toast.fire({
+          icon: 'success',
+          title: 'El usuario: ' + id + ' se borro correctamente '
+        });
+
+        $("#userIdDelete").val("");
+        $("#usernameDelete").val("");
+        $("#fullnameDelete").val("");
+        $("#emailDelete").val("");
+        $("#passwordDelete").val("");
+
+        setTimeout(() => {
+          $("#users tbody").append(
+            location.reload());
+        }, 2000);
       } catch (err) {
 
-        console.log("Problemas al borrar el usuario" + err.text);
+        console.log("Problemas al borrar el usuario" + err);
         return err;
 
       }

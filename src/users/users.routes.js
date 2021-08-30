@@ -1,15 +1,15 @@
 const express = require('express');
 const router = express.Router();
-const { getUsers, getUserById,createUser, deleteUser, updateUser} = require('./users.controller');
+const { getUsers, getUserById, createUser, deleteUser, updateUser } = require('./users.controller');
 
 router.get('/', (req, res) => {
   try {
-    getUsers().then((users)=>{
-    // let users = getUsers();
+    getUsers().then((users) => {
+      // let users = getUsers();
       res.status(200);
       res.send(users);
-     
-    }).catch((error)=>{
+
+    }).catch((error) => {
       res.sendStatus(500);
     });
   } catch (error) {
@@ -19,13 +19,13 @@ router.get('/', (req, res) => {
 });
 
 router.get('/:id', (req, res) => {
-  const id=req.params.id;
+  const id = req.params.id;
   try {
-    getUserById(id).then((users)=>{
-    // let users = getUsers();
+    getUserById(id).then((users) => {
+      // let users = getUsers();
       res.status(200);
       res.send(users);
-    }).catch((error)=>{
+    }).catch((error) => {
       res.sendStatus(500);
     });
   } catch (error) {
@@ -35,16 +35,16 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/create', (req, res) => {
-  const{id, username, fullname, email, password} = req.body;
+  const { id, username, fullname, email, password } = req.body;
   //console.log("1");
   try {
     //console.log("2.1");
-    createUser(id, username, fullname, email, password).then((users)=>{
+    createUser(id, username, fullname, email, password).then((users) => {
       //console.log("2.2");
 
       res.status(200);
       res.send(users);
-    }).catch((error)=>{
+    }).catch((error) => {
       //console.log("3");
       console.log(error);
 
@@ -60,10 +60,12 @@ router.post('/create', (req, res) => {
 
 router.delete('/:id', (req, res) => {
   try {
-    deleteUser(req.params.id).then((users)=>{
-      res.sendStatus(200);
-      // res.sendStatus(users);
-    }).catch((error)=>{
+    deleteUser(req.params.id).then((users) => {
+      console.log(users);
+      res.status(200);
+      res.send(users);
+    }).catch((error) => {
+      res.send();
       res.sendStatus(500);
     });
   } catch (error) {
@@ -73,16 +75,16 @@ router.delete('/:id', (req, res) => {
 });
 
 router.put('/:id', (req, res) => {
-  const{username, fullname, email, password} = req.body;
+  const { username, fullname, email, password } = req.body;
   const id = req.params.id;
 
   try {
-    updateUser(id, username, fullname, email, password).then((users)=>{
+    updateUser(id, username, fullname, email, password).then((users) => {
       //console.log('pasa3');
 
       res.status(200);
       res.send(users);
-    }).catch((error)=>{
+    }).catch((error) => {
       res.sendStatus(500);
     });
   } catch (error) {

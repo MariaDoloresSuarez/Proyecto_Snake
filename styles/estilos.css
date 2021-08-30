@@ -582,7 +582,6 @@ margin-right: 250px; */
   }
 }
 
-
 /* smartphone */
 
 @media screen and (max-width:767px) {
@@ -602,7 +601,6 @@ margin-right: 250px; */
   }
 }
 
-
 /* smartphone mas pequeños */
 
 @media screen and (max-width:425px) {
@@ -611,22 +609,46 @@ margin-right: 250px; */
       /* background-color: #5363ab */
   }
 }
-/* VENTANA sWAL */
+/* VENTANA SWAL */
 .swal2-center>.swal2-popup {
   background-color: #1c1b1b!important;
 }
 
 .swal2-popup.swal2-toast .swal2-title {
 background-color: #1c1b1b!important;
-
-  /* font-family: 'Orbitron', sans-serif; */
-
 }
 
 .swal2-shown .swal2-title {
   font-family: 'Orbitron', sans-serif;
   /* color: #05e200!important; */
   font-weight: unset;
-  color: #fffab1!important;
+  color: #ffb1b1!important;
+}
 
+/* VENTANA LOGIN */
+
+.log_campos{
+  border: 1px solid #ff5100;
+  font-family: 'Orbitron', sans-serif;
+  /* color: #05e200; */
+  color: #ff5100;
+  margin-left: 250px;
+  margin-right: 250px;
+}
+
+.log_campos > label{
+  margin-left: 20px;
+  margin-top: 10px;
+}
+
+.log_campos > input {
+  margin-right: 20px;
+  margin-top: 17px;
+  border: 1px solid #ff5100;
+}
+.section_login > label {
+  color: #ff5100;
+  float: inherit;
+  font-family: 'Orbitron', sans-serif;
+  display: inline;
 }

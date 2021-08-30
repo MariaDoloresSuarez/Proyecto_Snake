@@ -15,7 +15,7 @@ const callAPISnake = async (url, parameters, data) => {
     };
     _parameters = Object.assign(_parameters, parameters);
     _parameters.body = JSON.stringify(data);
-  
+
     return fetch(url, _parameters);
 
 }
@@ -24,31 +24,31 @@ const getUsers = async () => {
     const url = 'http://localhost:3000/v1/users';
     const parameters = {};
     const res = await callAPISnake(url, parameters);
-    const data =await res.json();
+    const data = await res.json();
     return data;
 
 }
 
-(async()=>{
- //console.log('API');
- const result=await getUsers();
-// console.log(result);
+(async () => {
+    //console.log('API');
+    const result = await getUsers();
+    // console.log(result);
 
-// //Ejemplo para hacerlo programaticamente
-// let tabla = document.createElement("div"); //table
-// tabla.classList.add("clasecss");
-// tabla.setAttribute("scr",'');
-// tabla.textContent = "texto dentro del div";
-// tabla.innerHTML ="codigo html";
+    // //Ejemplo para hacerlo programaticamente
+    // let tabla = document.createElement("div"); //table
+    // tabla.classList.add("clasecss");
+    // tabla.setAttribute("scr",'');
+    // tabla.textContent = "texto dentro del div";
+    // tabla.innerHTML ="codigo html";
 
- for (var i=0;i<result.length;i++){
-    $( "#users tbody" ).append( "<tr>" +
-          "<td>" + result[i].id+ "</td>" +
-          "<td>" + result[i].username+ "</td>" +
-          "<td>" + result[i].fullname + "</td>" +
-          "<td>" + result[i].email+ "</td>" +
-        "</tr>" );
- }
+    for (var i = 0; i < result.length; i++) {
+        $("#users tbody").append("<tr>" +
+            "<td>" + result[i].id + "</td>" +
+            "<td>" + result[i].username + "</td>" +
+            "<td>" + result[i].fullname + "</td>" +
+            "<td>" + result[i].email + "</td>" +
+            "</tr>");
+    }
 
 })();
 
@@ -57,23 +57,23 @@ const getUsers = async () => {
 
 
 const getUserById = async (user) => {
-    const url = 'http://localhost:3000/v1/users/'+user;
+    const url = 'http://localhost:3000/v1/users/' + user;
     const parameters = {};
     const res = await callAPISnake(url, parameters);
-    const data =await res.json();
-    console.log('datagetid' +data);
+    const data = await res.json();
+    console.log('datagetid' + data);
     return data;
 
 }
 
 const createUser = async (user) => {
     const url = 'http://localhost:3000/v1/users/create';
-    const parameters = {method:'POST'};
-    const res = await callAPISnake(url, parameters,user);
+    const parameters = { method: 'POST' };
+    const res = await callAPISnake(url, parameters, user);
     const data = await res.json();
     return data;
     //console.log("data" + data);
-  }
+}
 
 //   (async () => {
 //       const username=$( "#name" );
@@ -91,12 +91,12 @@ const createUser = async (user) => {
 
 //para modificar
 const updateUser = async (user) => {
-    console.log("user"+ user);
-    const url = "http://localhost:3000/v1/users/"+user.id;
-    console.log("url"+url);
-    const parameters = {method:'PUT',body:user};
+    console.log("user" + user);
+    const url = "http://localhost:3000/v1/users/" + user.id;
+    console.log("url" + url);
+    const parameters = { method: 'PUT', body: user };
     //console.log("user parameters"+body);
-    const res = await callAPISnake(url, parameters,user);
+    const res = await callAPISnake(url, parameters, user);
     //console.log("res"+res);
     const data = await res.json();
     //console.log('data :'+ JSON.stringify(data));
@@ -104,37 +104,50 @@ const updateUser = async (user) => {
 }
 //Para borrar un usuario
 const deleteUser = async (user) => {
-    const url = 'http://localhost:3000/v1/users/'+user.id;
-    const parameters = {method:'DELETE'};
-    const res = await callAPISnake(url, parameters,user);
+    const url = 'http://localhost:3000/v1/users/' + user.id;
+    const parameters = { method: 'DELETE' };
+    const res = await callAPISnake(url, parameters, user);
+    console.log("pase por aca");
+    console.log(res);
     const data = await res.json();
+    console.log(data);
     return data;
     //console.log("data" + data);
-  }
+}
 
 //para el ranking
 const getScores = async () => {
     const url = 'http://localhost:3000/v1/scores';
     const parameters = {};
     const res = await callAPISnake(url, parameters);
-    const data =await res.json();
+    const data = await res.json();
     return data;
 
 }
 
 
-(async()=>{
-    const result=await getScores();
+(async () => {
+    const result = await getScores();
 
-   for (var i=0;i<result.length;i++){
-    $( "#listaScore #list-it" ).append( "<ul>" +
-    "<li>" + result[i].username + "</li>" +
-    "<span>" + result[i].puntos+ "</span>" +
-    "</ul>" 
-    );
- }
-   
-   })();
-   
+    for (var i = 0; i < result.length; i++) {
+        $("#listaScore #list-it").append("<ul>" +
+            "<li>" + result[i].username + "</li>" +
+            "<span>" + result[i].puntos + "</span>" +
+            "</ul>"
+        );
+    }
 
-export {createUser,getUserById,deleteUser,updateUser};
+})();
+
+//Para guardar el puntaje
+const createScore = async (score) => {
+    console.log("pasa por aqui creacion puntaje" + score);
+    const url = 'http://localhost:3000/v1/scores/create';
+    const parameters = { method: 'POST' };
+    const res = await callAPISnake(url, parameters, score);
+    const data = await res.json();
+    return data;
+}
+
+
+export { createUser, getUserById, deleteUser, updateUser, createScore };

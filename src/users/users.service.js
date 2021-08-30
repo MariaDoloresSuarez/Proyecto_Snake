@@ -35,12 +35,12 @@ const createUser = async (id, username, fullname, email, password) => {
 }
 
 const deleteUser = async (id) => {
-  return await User.destroy({
-    where: {
-      id: id
-    }
-  });
-
+      const user= await User.destroy({
+        where: {
+          id: id
+        }
+      });
+    return user
 }
 
 const updateUser = async (id, username, fullname, email, password) => {
