@@ -39,14 +39,14 @@
 
                 </button>
                 <div id="nav1" class="collapse navbar-collapse">
-                 
-                        <div class="navbar-nav">
-                            <a class="nav-link" href="./login.html">Login</a>
-                            <a class="nav-link active" aria-current="page" href="./users.html">Users</a>
-                            <a class="nav-link" href="./juego.html">Play</a>
-                            <a class="nav-link" href="./ranking.html">Ranking</a>
-                        </div>
-               
+
+                    <div class="navbar-nav">
+                        <a class="nav-link" href="./login.html">Login</a>
+                        <a class="nav-link active" aria-current="page" href="./users.html">Users</a>
+                        <a class="nav-link" href="./juego.html">Play</a>
+                        <a class="nav-link" href="./ranking.html">Ranking</a>
+                    </div>
+
                 </div>
             </div>
     </header>
@@ -55,21 +55,23 @@
     <div>
         <section class="section_login">
             <!-- <h1>Si no tiene usuarios crear : link</h1> -->
-            <label for="">Antes de loguearse debe crear su usuario en:<a class="nav-link active" aria-current="page" href="./users.html">Users</a></label>
+            <label for="">Antes de loguearse debe crear su usuario haciendo click en el boton register</label>
         </section>
     </div>
     <div class="login">
         <form>
             <fieldset class="log_campos">
                 <label for="Username">User Name</label>
-                <input type="text"  id="" value="">
+                <input type="text" id="" value="">
                 <br>
                 <label for="password">Password</label>
                 <input type="password" name="" id="" value="">
             </fieldset>
         </form>
     </div>
-
+    <button id="login_user" class="but_log">Login</button>
+    <button id="registrar" class="but_log">
+        <a class="a_but" href="./users.html">Register</a></button>
     <div class="footer-dark">
         <footer>
             <div class="container">
@@ -89,7 +91,7 @@
                             <li><a href="#">Team</a></li>
                             <li><a href="#">Careers</a></li>
                         </ul>
-                
+
                     </div>
                     <div class="col-md-6 item text">
                         <h3>Canal Uno</h3>
@@ -100,9 +102,11 @@
                                 class="bi bi-facebook" viewBox="0 0 16 16">
                                 <path
                                     d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z" />
-                            </svg></a><a href="#"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
-                                <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
-                              </svg></a><a href="#"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                            </svg></a><a href="#"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
+                                <path
+                                    d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" />
+                            </svg></a><a href="#"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                 fill="currentColor" class="bi bi-linkedin" viewBox="0 0 16 16">
                                 <path
                                     d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z" />
@@ -114,9 +118,9 @@
                                 <path
                                     d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.828-1.165c-.315 0-.602.124-.812.325-.801-.573-1.9-.945-3.121-.993l.534-2.501 1.738.372a.83.83 0 1 0 .83-.869.83.83 0 0 0-.744.468l-1.938-.41a.203.203 0 0 0-.153.028.186.186 0 0 0-.086.134l-.592 2.788c-1.24.038-2.358.41-3.17.992-.21-.2-.496-.324-.81-.324a1.163 1.163 0 0 0-.478 2.224c-.02.115-.029.23-.029.353 0 1.795 2.091 3.256 4.669 3.256 2.577 0 4.668-1.451 4.668-3.256 0-.114-.01-.238-.029-.353.401-.181.688-.592.688-1.069 0-.65-.525-1.165-1.165-1.165z" />
                             </svg></a>
-    
+
                     </div>
-    
+
                     <p class="copyright">Canal Uno © 2021</p>
                 </div>
         </footer>
