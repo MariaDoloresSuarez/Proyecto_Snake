@@ -63,10 +63,10 @@ $(function () {
     var valid = true;
     allFields.removeClass("ui-state-error");
 
-    valid = valid && checkLength(name, "username", 3, 16);
-    valid = valid && checkLength(fullname, "fullname", 3, 16);
-    valid = valid && checkLength(email, "email", 6, 80);
-    valid = valid && checkLength(password, "password", 5, 16);
+    valid = valid && checkLength(name, "Username", 3, 16);
+    valid = valid && checkLength(fullname, "Fullname", 3, 16);
+    valid = valid && checkLength(email, "Email", 6, 80);
+    valid = valid && checkLength(password, "Password", 5, 16);
 
     valid = valid && checkRegexp(name, /^[a-z]([0-9a-z_\s])+$/i, "Username may consist of a-z, 0-9, underscores, spaces and must begin with a letter.");
     valid = valid && checkRegexp(fullname, /^[a-z]([0-9a-z_\s])+$/i, "Fullname may consist of a-z, 0-9, underscores, spaces and must begin with a letter.");
@@ -116,12 +116,12 @@ $(function () {
     width: 350,
     modal: true,
     buttons: {
-      "Confirmar": addUser,
-      Cancelar: function () {
+      "Confirm": addUser,
+      Cancel: function () {
         dialog.dialog("close");
       }
     },
-    close: function () {
+    Close: function () {
       form[0].reset();
       allFields.removeClass("ui-state-error");
     }
@@ -255,10 +255,10 @@ $(function () {
     email = $("#emailUpdate");
     password = $("#passwordUpdate");
 
-    valid = valid && checkLength(name, "usernameUpdate", 3, 16);
-    valid = valid && checkLength(fullname, "fullnameUpdate", 3, 16);
-    valid = valid && checkLength(email, "emailUpdate", 6, 80);
-    valid = valid && checkLength(password, "passwordUpdate", 5, 16);
+    valid = valid && checkLength(name, "Username", 3, 16);
+    valid = valid && checkLength(fullname, "Fullname", 3, 16);
+    valid = valid && checkLength(email, "Email", 6, 80);
+    valid = valid && checkLength(password, "Password", 5, 16);
 
     valid = valid && checkRegexp(name, /^[a-z]([0-9a-z_\s])+$/i, "Username may consist of a-z, 0-9, underscores, spaces and must begin with a letter.");
     valid = valid && checkRegexp(fullname, /^[a-z]([0-9a-z_\s])+$/i, "Fullname may consist of a-z, 0-9, underscores, spaces and must begin with a letter.");
@@ -317,30 +317,51 @@ $(function () {
     };
 
   };
-  // $("input").prop('disabled', false);
-  //$(".ui-dialog-buttonpane button:contains('Confirm')").button("disable");
   dialog = $("#dialog-form").dialog({
     autoOpen: false,
     height: 450,
     width: 350,
     modal: true,
     buttons: {
-      "Buscar": buscarUser,
-      "Confirmar": modUser,
-      Cancelar: function () {
+      "Search": buscarUser,
+      "Confirm": modUser,
+      Cancel: function () {
         dialog.dialog("close");
       }
     },
-    close: function () {
+    Close: function () {
       form[0].reset();
       allFields.removeClass("ui-state-error");
     }
   });
 
-  form = dialog.find("form").on("submit", function (event) {
-    event.preventDefault();
-    addUser();
-  });
+  // dialog = $("#dialog-form").dialog({
+  //   autoOpen: false,
+  //   height: 450,
+  //   width: 350,
+  //   modal: true,
+  //   buttons: {
+  //     "Buscar": buscarUser,
+  // ncuentra user habilita boton buscar 
+  //  $("#userIdUpdate").val("");
+
+  // "Confirmar": modUser,
+
+
+  //     Cancelar: function () {
+  //       dialog.dialog("close");
+  //     }
+  //   },
+  //   close: function () {
+  //     form[0].reset();
+  //     allFields.removeClass("ui-state-error");
+  //   }
+  // });
+  // me parece que a esta funcion no la usa
+  // form = dialog.find("form").on("submit", function (event) {
+  //   event.preventDefault();
+  //   addUser();
+  // });
 
   $("#modif-user").button().on("click", function () {
     dialog.dialog("open");
@@ -513,21 +534,16 @@ $(function () {
     width: 350,
     modal: true,
     buttons: {
-      "Buscar": buscarUser,
-      "Confirmar": delUser,
-      Cancelar: function () {
+      "Search": buscarUser,
+      "Confirm": delUser,
+      Cancel: function () {
         dialog.dialog("close");
       }
     },
     close: function () {
-      form[0].reset();
+      // form[0].reset();
       allFields.removeClass("ui-state-error");
     }
-  });
-
-  form = dialog.find("form").on("submit", function (event) {
-    event.preventDefault();
-    addUser();
   });
 
   $("#delete-user").button().on("click", function () {

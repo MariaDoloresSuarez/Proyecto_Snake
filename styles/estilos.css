@@ -681,3 +681,25 @@ background-color: #1c1b1b!important;
   background-color: transparent;
   border-color: #38ff20;
 }
+
+/* MEDIA QUERYS - Login */
+
+/* tablet */
+
+@media screen and (min-width:768px) and (max-width:1023px) {
+  .log_campos{
+    margin-left: 121px;
+    margin-right: 129px;
+   
+  }
+
+}
+
+/* smartphone */
+
+@media screen and (max-width:767px) {
+  .log_campos{
+    margin-left: -16px;
+    margin-right: -19px;
+  }
+}
