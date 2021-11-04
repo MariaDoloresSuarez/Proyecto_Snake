@@ -149,5 +149,16 @@ const createScore = async (score) => {
     return data;
 }
 
+//Para el login
+const loginUser = async (login) => {
+    console.log("pasa por aqui login" + login);
+    const url = 'http://localhost:3000/v1/login';
+    const parameters = { method: 'POST' };
+    const res = await callAPISnake(url, parameters, login);
+    const data = await res.json();
+    return data;
+}
 
-export { createUser, getUserById, deleteUser, updateUser, createScore };
+
+
+export { createUser, getUserById, deleteUser, updateUser, createScore, loginUser};

@@ -10,7 +10,9 @@ const getUsers = async () => {
 const getUserById = async (id) => {
   const usuario = await User.findByPk(id);
   // if (usuario) {
-    return usuario;
+    console.log (usuario.dataValues);
+    return usuario.dataValues;
+    //return usuario[0];  
 // } else {
 //   return `El usuario id: ${id} no existe`;
 // }

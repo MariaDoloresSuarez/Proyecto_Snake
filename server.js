@@ -1,5 +1,10 @@
-const { app,User, Score} = require('./src/main');
+const { app, User, Score } = require('./src/main');
 const { MySql, dbSnake } = require('./src/connections/snakeMySQL');
+const { setSecret } = require('./authServer/authSecret');
+require('dotenv').config();
+
+//process.env.TOKEN_SECRET
+
 
 
 
@@ -8,13 +13,16 @@ app.listen(3000, () => {
 
 });
 
-const initWebServer=()=>{
+const initWebServer = () => {
 
-
-
+    setSecret(
+        {
+            secret: process.env.TOKEN_SECRET,
+            expire: process.env.TOKEN_EXPIRE
+        });
 }
 
-const initMySql = async(login) => {
+const initMySql = async (login) => {
     try {
         let configDB = {
             database: dbSnake.database,
@@ -25,7 +33,7 @@ const initMySql = async(login) => {
 
         console.log(configDB);
 
-        mysql=new MySql (configDB);
+        mysql = new MySql(configDB);
         //testDB
         console.log('test MySQL');
         await mysql.authenticate();
@@ -35,9 +43,10 @@ const initMySql = async(login) => {
         Score.init(mysql);
 
     } catch (error) {
-     console.error(error);
+        console.error(error);
     }
 
 }
 
-initMySql ({ username: 'Mariana', password: '123' });
+initMySql({ username: 'Dolores', password: '123456' });
+initWebServer();

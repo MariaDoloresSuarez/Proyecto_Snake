@@ -6,6 +6,7 @@ const cors = require('cors');
 
 const userRoutes= require('./users/users.routes');
 const scoreRoutes= require('./scores/scores.routes');
+const loginRoutes= require('./login/login.routes');
 
 
 const app=express();
@@ -16,6 +17,7 @@ app.use(cors());
 
 app.use('/v1/users', userRoutes);
 app.use('/v1/scores', scoreRoutes);
+app.use('/v1/login', loginRoutes);
 
 
 module.exports={app, User, Score};

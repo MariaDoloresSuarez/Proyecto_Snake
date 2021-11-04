@@ -201,7 +201,7 @@ $(function () {
   }
 
   function buscarUser() {
-    var valid = true;
+    let valid = true;
     allFields.removeClass("ui-state-error");
 
     if (valid) {
@@ -248,7 +248,7 @@ $(function () {
 
   function modUser() {
 
-    var valid = true;
+    let valid = true;
     id = $("#userIdUpdate");
     name = $("#usernameUpdate");
     fullname = $("#fullnameUpdate");
@@ -258,12 +258,12 @@ $(function () {
     valid = valid && checkLength(name, "Username", 3, 16);
     valid = valid && checkLength(fullname, "Fullname", 3, 16);
     valid = valid && checkLength(email, "Email", 6, 80);
-    valid = valid && checkLength(password, "Password", 5, 16);
+    valid = valid && checkLength(password, "Password", 5, 66);
 
     valid = valid && checkRegexp(name, /^[a-z]([0-9a-z_\s])+$/i, "Username may consist of a-z, 0-9, underscores, spaces and must begin with a letter.");
     valid = valid && checkRegexp(fullname, /^[a-z]([0-9a-z_\s])+$/i, "Fullname may consist of a-z, 0-9, underscores, spaces and must begin with a letter.");
     valid = valid && checkRegexp(email, emailRegex, "eg. ui@jquery.com");
-    valid = valid && checkRegexp(password, /^([0-9a-zA-Z])+$/, "Password field only allow : a-z 0-9");
+    //valid = valid && checkRegexp(password, /^([0-9a-zA-Z])+$/, "Password field only allow : a-z 0-9");
 
 
     if (valid) {
